@@ -119,10 +119,12 @@
 7. [https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues)  
 8. [https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki](https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki)  
 9. [https://blog.lopp.net/against-quantum-recovery-of-bitcoin/](https://blog.lopp.net/against-quantum-recovery-of-bitcoin/)
+10. https://csrc.nist.gov/pubs/fips/204/final
+11. https://csrc.nist.gov/pubs/fips/205/final
 
 ## Notes
 
-### [BIP360](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
+### [BIP360 Pay-to_Markle-Root (P2MR)](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
 
 
 - Pay-to-Merkle-Root (P2MR) output is similar to Pay-to-Taproot (P2TR) but with the *key path spend* removed.
@@ -133,12 +135,52 @@
 
 - Protection against short exposure attacks requires PQC, which this BIP doesn't propose.
 
-
+#### Motivation
 - Shor's on CRQC solves the DLP exponentially faster then a classical computer -> derives k from K, known as *quantum key recovery*
 
 - Timelines of GOs:
   - Commercial National Security Algorithm Suite (CNSA) 2.0 PQC in software & networking by 2030, and browsers & OS by 2033
   - NIST disallow ECC within US federal government after 2035.
 
+#### Long exposure attack vulnerability of all output types
+  ![BIP360 Address Type Vulnerability](assets/images/bip360-address-type-vulnerability.png)
 
-- 
+#### Design
+- P2MR witness consists of:
+  - script inputs + leaf script + *control block* (same as P2TR script path spend), however
+  - control block doesn't contain the public key for the taproot derivation, therefore consists of
+  - control byte + *Merkle path*
+
+- Script tree with Merkle root, and input/output diagram
+  ![BIP360 script tree with inputs and outputs](assets/images/bip360-merkletree.png)
+
+
+#### Rationale
+1. minimizes changes to the network
+2. supports tapscript which assists in implementing PQC required opcodes
+3. Facilitates gradual integration of PQC without negative impacts before Q-Day.
+
+#### Trade-offs
+- Size: the witness to a P2MR is always > P2TR key path spend
+  - The smallest witness size P2MR is 103 bytes to 66 bytes for P2TR key path spend, however
+  - The witness to a P2MR is always < an equivalent P2TR script path spend, due no requirement of the internal public key in the control block
+- Privacy: comparing P2MR to P2TR key path spent: with P2MR there is no way to conceal you have other script path spends.
+  - Note: P2MR and P2TR script path spend offer the same level of privacy, and both are better than P2SH because unused script paths are not revealed.
+
+#### Specifications
+
+- Address format: Bech32m encoding maps version 2 to prifix *z* -> P2MR address begin with bc1z...
+
+- ScriptPubKey: OP_2 OP_PUSHBYTES_32 <hash>
+  - where OP_2 indicates SegWit version 2
+  - <hash> is the 32-byte Markle root of the *script tree*
+
+#### Security
+- P2MR uses 256-bit hash output -> 128 bits of collision resitance and 256 bits of preimage resistance; same as P2WSH.
+- P2MR does not, byt itself, protect against short exposure attacks, however
+  - Later plug-in PQC can provide resistance for this attack.
+- Preparing against long exposure attacks is more time-crucial as early CRQCs are unlikely to be fast enought for short exposure attacks.
+
+- PQC
+  - *[ML-DSA](https://csrc.nist.gov/pubs/fips/204/final)* Latice-based (derived from CRYSTALS-Dilithium) NIST FIPS 204
+  - *[SLH-DSA](https://csrc.nist.gov/pubs/fips/204/final)* Hash-based (derived from SPHINCS+) NIST FIPS 205
