@@ -120,3 +120,25 @@
 8. [https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki](https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki)  
 9. [https://blog.lopp.net/against-quantum-recovery-of-bitcoin/](https://blog.lopp.net/against-quantum-recovery-of-bitcoin/)
 
+## Notes
+
+### [BIP360](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
+
+
+- Pay-to-Merkle-Root (P2MR) output is similar to Pay-to-Taproot (P2TR) but with the *key path spend* removed.
+
+- Uses *script trees* and *tapscript* in a manner that makes it resistant to:
+  1. long exposure attacks by CRQCs, and
+  2. future cryptanalytic approaches that compromise ECC.
+
+- Protection against short exposure attacks requires PQC, which this BIP doesn't propose.
+
+
+- Shor's on CRQC solves the DLP exponentially faster then a classical computer -> derives k from K, known as *quantum key recovery*
+
+- Timelines of GOs:
+  - Commercial National Security Algorithm Suite (CNSA) 2.0 PQC in software & networking by 2030, and browsers & OS by 2033
+  - NIST disallow ECC within US federal government after 2035.
+
+
+- 
