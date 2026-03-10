@@ -14,13 +14,30 @@
 
 ## Outline
 
-* ### What is Quantum Computing (QC)
+* ### What is Quantum Computing (QC) — ALT
 
-  * What makes it work: superposition and entanglement  
-  * What we currently have   
-  * What’s getting built ([ref](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues))  
-  * Cryptographic Relevant Quantum Computer (CRQC)  
-    * physical qubits → error correction → logical qubits  
+  * Three components: qubits, quantum gates, measurement
+  * Physical qubits → error correction → logical qubits
+  * Fault tolerance: the key engineering challenge
+  * CRQC: a QC with enough logical qubits to break cryptography
+  * Current uses: drug discovery, optimisation
+
+  #### Notes
+  * **Qubits**: the basic unit — like a bit but can be in superposition (both 0 and 1 simultaneously). Superposition is what gives QC its parallelism.
+  * **Quantum gates**: operations that manipulate qubits, analogous to logic gates in classical computing. They exploit superposition and entanglement to perform computations across many states at once.
+  * **Measurement**: collapses a qubit’s superposition into a definite 0 or 1. Quantum algorithms are designed so that measuring at the end gives the correct answer with high probability.
+  * **Physical vs logical qubits**: physical qubits are the actual hardware (superconducting circuits, trapped ions, etc.) and are extremely error-prone. Multiple physical qubits are combined via quantum error correction codes to form one reliable logical qubit. Current ratios are roughly 1,000:1 or worse.
+  * **Fault tolerance**: the ability to perform long computations despite individual qubit errors. Without fault tolerance a QC can only run very short, noisy circuits. Achieving fault tolerance at scale is the single biggest engineering barrier to a CRQC.
+  * **CRQC (Cryptographically Relevant Quantum Computer)**: a fault-tolerant QC with enough logical qubits and sufficient runtime to execute Shor’s algorithm against real-world key sizes (e.g. ECDSA-256). Estimates range from ~2,000–4,000 logical qubits, which translates to millions of physical qubits with current error rates.
+  * **Current commercial uses**: Pharmaceutical companies are paying for QC time to simulate molecular interactions for drug discovery. Logistics and finance firms use quantum annealers and hybrid algorithms for combinatorial optimisation problems (routing, portfolio optimisation). These are the applications attracting real revenue today, which signals where the technology is genuinely useful right now.
+
+* ### What is Quantum Computing (QC) — ORIGINAL
+
+  * What makes it work: superposition and entanglement
+  * What we currently have
+  * What’s getting built ([ref](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues))
+  * Cryptographic Relevant Quantum Computer (CRQC)
+    * physical qubits → error correction → logical qubits
     * logical qubits \+ runtime → “can it run Shor fast enough?”
 
 * ### What is the QC threat to Bitcoin
