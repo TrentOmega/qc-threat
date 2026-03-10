@@ -127,7 +127,9 @@
 
 ## References
 
-1. [https://bip360.org/bip360.html](https://bip360.org/bip360.html)  
+1. [Quantum resource estimates for computing elliptic curve discrete logarithms](https://arxiv.org/abs/1706.06752)
+2. [Theory of Grover's search algorithm](https://learn.microsoft.com/en-us/azure/quantum/concepts-grovers)
+3. [https://bip360.org/bip360.html](https://bip360.org/bip360.html)  
 2. [https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)  
 3. [https://www.bitmex.com/blog/Taproot-Quantum-Spend-Paths](https://www.bitmex.com/blog/Taproot-Quantum-Spend-Paths)  
 4. [https://www.tradingview.com/news/cointelegraph%253A30729863f094b%253A0-bitcoin-may-take-7-years-to-upgrade-to-post-quantum-bip-360-co-author/](https://www.tradingview.com/news/cointelegraph%253A30729863f094b%253A0-bitcoin-may-take-7-years-to-upgrade-to-post-quantum-bip-360-co-author/)  
