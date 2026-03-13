@@ -161,7 +161,7 @@ Making SLH-DSA 10x-100x Faster
 SLH-DSA Performance — SLotH GitHub
 https://chaincode.com/bitcoin-post-quantum.pdf
 
-## Notes
+## BIP360 Notes
 
 ### [BIP360 Pay-to_Markle-Root (P2MR)](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
 
