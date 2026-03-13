@@ -155,6 +155,12 @@
 11. https://csrc.nist.gov/pubs/fips/205/final
 12. https://www.theinvestorspodcast.com/bitcoin-fundamentals/quantum-computing-and-bitcoin-w-charles-edwards/
 
+Post-Quantum Digital Signatures Benchmark — ML-DSA vs ECDSA
+Digital Signature Benchmark — ASecuritySite
+Making SLH-DSA 10x-100x Faster
+SLH-DSA Performance — SLotH GitHub
+https://chaincode.com/bitcoin-post-quantum.pdf
+
 ## Notes
 
 ### [BIP360 Pay-to_Markle-Root (P2MR)](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
