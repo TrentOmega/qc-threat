@@ -8,6 +8,19 @@
 * Bitcoin: beginner to advance on bitcoin  
 * QC: no knowledge to intermediate
 
+## Topic Intro
+- Interesting and difficult topic to present on because it lies at the intersection of four disciplinary pillars
+  1. the strange world of quantum mechanics,
+  2. the intricate mathematics of cyrptography,
+  3. the elegant structures of computer science, and
+  4. the innovative functions of Bitcoin.
+- I'm currently studying the first three: physics, math, and computer science; and have had a keen interest in the technical aspects of Bitcoin for many years.
+- This topic has a lot of FUD around it and one of my aims is to reduce that:
+  - Understanding a threat and what is being done can eleviate fear,
+  - Uncertainty is a big thing in the QC space and won't be going away, so learn to live with
+  - Doubt exists on both sides of people underselling and overselling the risk. I hope to clear up some of those doubts
+- Explore further as not much time here.s
+
 ## Objective
 
 * Overview the threat, what can we do, what can you do.
@@ -140,6 +153,7 @@
 9. [https://blog.lopp.net/against-quantum-recovery-of-bitcoin/](https://blog.lopp.net/against-quantum-recovery-of-bitcoin/)
 10. https://csrc.nist.gov/pubs/fips/204/final
 11. https://csrc.nist.gov/pubs/fips/205/final
+12. https://www.theinvestorspodcast.com/bitcoin-fundamentals/quantum-computing-and-bitcoin-w-charles-edwards/
 
 ## Notes
 
