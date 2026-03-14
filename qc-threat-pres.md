@@ -128,65 +128,90 @@
 ## References
 
 ### What is QC
-1. [Grover's Search Algorithm Overview](https://learn.microsoft.com/en-us/azure/quantum/concepts-grovers)
-2. [Bitcoin Magazine: Quantum Bitcoin Summit](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues)
-3. [Bitcoin Fundamentals: Quantum Computing and Bitcoin](https://www.theinvestorspodcast.com/bitcoin-fundamentals/quantum-computing-and-bitcoin-w-charles-edwards/)
+1. [IBM Quantum Learning: Bits, Gates, and Circuits](https://quantum.cloud.ibm.com/learning/en/courses/utility-scale-quantum-computing/bits-gates-and-circuits)
+   IBM's technical introduction to qubits, quantum gates, and circuits — aimed at people with a computing background, no physics degree required.
+2. [Classiq: The Deutsch-Jozsa Algorithm Explained](https://www.classiq.io/insights/the-deutsch-jozsa-algorithm-explained)
+   Step-by-step walkthrough of the Deutsch oracle problem and circuit — the simplest demonstration that a quantum computer can outperform a classical one.
+3. [Bitcoin Magazine: Quantum Bitcoin Summit](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues)
+   Summary of a summit bringing together quantum computing and Bitcoin experts to examine the real threats and separate hype from substance.
 
 ### What is the threat
-4. [Quantum Resource Estimates for ECDLP](https://arxiv.org/abs/1706.06752)
-5. [Ha, Lee & Heo (2024) — Resource analysis for ECDLP with noisy qubits](https://www.nature.com/articles/s41598-024-54434-w)
-6. [Ed25519 Optimisation (2025)](https://link.springer.com/article/10.1007/s11128-025-04916-1)
+4. [Grover's Search Algorithm Overview](https://learn.microsoft.com/en-us/azure/quantum/concepts-grovers)
+   Microsoft's explanation of Grover's quantum search algorithm, which provides a quadratic speedup for unstructured search problems.
+5. [Quantum Resource Estimates for ECDLP](https://arxiv.org/abs/1706.06752)
+   Roetteler et al. (2017) foundational paper estimating ~2,330 logical qubits and ~1.29 × 10¹¹ Toffoli gates to break 256-bit ECC using Shor's algorithm.
+6. [Ha, Lee & Heo (2024) — Resource analysis for ECDLP with noisy qubits](https://www.nature.com/articles/s41598-024-54434-w)
+   First comprehensive physical qubit estimate for ECDLP under surface codes: ~5.87 million physical qubits for P-256 at 10⁻³ error rate with 200 ns cycle time.
+7. [Ed25519 Optimisation (2025)](https://link.springer.com/article/10.1007/s11128-025-04916-1)
+   Achieves 97% reduction in T-count, 60% reduction in T-depth, and 16% fewer qubits for quantum attacks on Ed25519 by exploiting its specific finite field structure.
 
 ### Bitcoin revision
-- Public key cryptography:
-  - [Elliptic Curve Cryptography](https://learnmeabitcoin.com/technical/cryptography/elliptic-curve/)
-  - [ECDSA](https://learnmeabitcoin.com/technical/cryptography/elliptic-curve/ecdsa/)
-  - [Schnorr Signatures](https://learnmeabitcoin.com/technical/cryptography/elliptic-curve/schnorr/)
-  - [Digital Signatures](https://learnmeabitcoin.com/beginners/guide/digital-signatures/)
-  - [Public Keys](https://learnmeabitcoin.com/technical/keys/public-key/)
-  - [Private Keys](https://learnmeabitcoin.com/technical/keys/private-key/)
-- Hashing:
-  - [Hash Functions](https://learnmeabitcoin.com/technical/cryptography/hash-function/)
-  - [Mining](https://learnmeabitcoin.com/beginners/guide/mining/)
-  - [Addresses (compression & checksums)](https://learnmeabitcoin.com/technical/keys/address/)
-  - [HD Wallets & Key Derivation](https://learnmeabitcoin.com/technical/keys/hd-wallets/)
-  - [Merkle Root](https://learnmeabitcoin.com/technical/block/merkle-root/)
-- Spending bitcoin and the mempool:
-  - [Transactions](https://learnmeabitcoin.com/technical/transaction/)
-  - [Memory Pool](https://learnmeabitcoin.com/technical/mining/memory-pool/)
-  - [P2PKH](https://learnmeabitcoin.com/technical/script/p2pkh/)
-  - [P2WPKH](https://learnmeabitcoin.com/technical/script/p2wpkh/)
-  - [P2TR](https://learnmeabitcoin.com/technical/script/p2tr/)
+8. [Elliptic Curve Cryptography](https://learnmeabitcoin.com/technical/cryptography/elliptic-curve/)
+   How Bitcoin uses the secp256k1 elliptic curve for key generation and digital signatures — the operation Shor's algorithm can reverse.
+9. [Digital Signatures](https://learnmeabitcoin.com/beginners/guide/digital-signatures/)
+   How ECDSA and Schnorr signatures work in Bitcoin to authorise spending without revealing the private key.
+10. [Hash Functions](https://learnmeabitcoin.com/technical/cryptography/hash-function/)
+    Overview of SHA-256 and RIPEMD-160 as used in Bitcoin for mining, addresses, and data integrity — Grover's algorithm provides only a quadratic speedup against these.
+11. [Memory Pool](https://learnmeabitcoin.com/technical/mining/memory-pool/)
+    The mempool where unconfirmed transactions wait — the window during which a short exposure quantum attack could occur.
+12. [Taproot (P2TR)](https://learnmeabitcoin.com/technical/script/p2tr/)
+    Pay-to-Taproot: exposes a tweaked public key on-chain, making unspent P2TR outputs vulnerable to long exposure quantum attacks.
 
 ### QC timeline
-7. [Cointelegraph: BIP-360 Upgrade Timeline](https://www.tradingview.com/news/cointelegraph%253A30729863f094b%253A0-bitcoin-may-take-7-years-to-upgrade-to-post-quantum-bip-360-co-author/)
+13. [GRI Quantum Threat Timeline Report 2025](https://globalriskinstitute.org/publication/quantum-threat-timeline-2025-executive-perspectives-on-barriers-to-action/)
+    Annual survey of 26 global quantum experts. Optimistic interpretation: ~49% chance of a CRQC within 10 years; pessimistic: ~28%. Notable upward shift from prior years.
+14. [Bitcoin Fundamentals: Quantum Computing and Bitcoin](https://www.theinvestorspodcast.com/bitcoin-fundamentals/quantum-computing-and-bitcoin-w-charles-edwards/)
+    Podcast episode discussing the quantum threat to Bitcoin with Charles Edwards, covering timelines, risk assessment, and what bitcoiners should know.
+15. [Cointelegraph: BIP-360 Upgrade Timeline](https://www.tradingview.com/news/cointelegraph%253A30729863f094b%253A0-bitcoin-may-take-7-years-to-upgrade-to-post-quantum-bip-360-co-author/)
+    BIP-360 co-author estimates Bitcoin may take up to 7 years to fully upgrade to post-quantum signatures under a standard timeline.
 
 ### Technical problem and fixes
-8. [BIP360.org Overview](https://bip360.org/bip360.html)
-9. [BIP-360 Draft: Pay-to-Merkle-Root](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
-10. [BitMEX Research: Taproot Quantum Spend Paths](https://www.bitmex.com/blog/Taproot-Quantum-Spend-Paths)
-11. [Cointelegraph: Six Quantum Security Challenges](https://www.tradingview.com/news/cointelegraph:d4cc2ff14094b:0-bitcoin-faces-6-massive-challenges-to-become-quantum-secure/)
-12. [Bitcoin Magazine: Bitcoin Advances Toward Quantum Resistance](https://bitcoinmagazine.com/news/bitcoin-advances-toward-quantum-resistance)
-13. [NIST FIPS 204: ML-DSA](https://csrc.nist.gov/pubs/fips/204/final)
-14. [NIST FIPS 205: SLH-DSA](https://csrc.nist.gov/pubs/fips/205/final)
-15. [Post-Quantum Digital Signatures Benchmark: ML-DSA vs ECDSA](https://pqc.metamui.id/signatures/ecc_dss)
-16. [ASecuritySite: Digital Signature Benchmark](https://asecuritysite.com/pqc/dilbenchmark)
-17. [Making SLH-DSA 10x-100x Faster](https://huelsing.net/wordpress/?page_id=1474)
-18. [SLotH GitHub: SLH-DSA Performance](https://github.com/slh-dsa/sloth)
-19. [Chaincode: Bitcoin Post-Quantum](https://chaincode.com/bitcoin-post-quantum.pdf)
+16. [BIP360.org Overview](https://bip360.org/bip360.html)
+    Overview of Pay-to-Merkle-Root (P2MR), a new output type that removes the quantum-vulnerable key path spend from Taproot while preserving script tree functionality.
+17. [BIP-360 Draft: Pay-to-Merkle-Root](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
+    The formal BIP specification for P2MR, detailing address format (bc1z...), witness structure, and security rationale against long exposure quantum attacks.
+18. [BitMEX Research: Taproot Quantum Spend Paths](https://www.bitmex.com/blog/Taproot-Quantum-Spend-Paths)
+    Proposes dual-path Taproot wallets with both quantum-safe and classical spend paths, arguing these wallets should be exempt from any future coin freeze.
+19. [Cointelegraph: Six Quantum Security Challenges](https://www.tradingview.com/news/cointelegraph:d4cc2ff14094b:0-bitcoin-faces-6-massive-challenges-to-become-quantum-secure/)
+    Outlines six major hurdles Bitcoin faces in becoming quantum-resistant, including signature size bloat, consensus changes, and migration logistics.
+20. [Bitcoin Magazine: Bitcoin Advances Toward Quantum Resistance](https://bitcoinmagazine.com/news/bitcoin-advances-toward-quantum-resistance)
+    Reports on recent development progress toward quantum-resistant Bitcoin, including BIP-360 and related proposals.
+21. [NIST FIPS 204: ML-DSA](https://csrc.nist.gov/pubs/fips/204/final)
+    NIST's finalised standard for ML-DSA (derived from CRYSTALS-Dilithium), a lattice-based post-quantum digital signature algorithm.
+22. [NIST FIPS 205: SLH-DSA](https://csrc.nist.gov/pubs/fips/205/final)
+    NIST's finalised standard for SLH-DSA (derived from SPHINCS+), a stateless hash-based post-quantum digital signature algorithm.
+23. [Post-Quantum Digital Signatures Benchmark: ML-DSA vs ECDSA](https://pqc.metamui.id/signatures/ecc_dss)
+    Side-by-side performance benchmarks comparing ML-DSA signature sizes, signing times, and verification times against classical ECDSA.
+24. [ASecuritySite: Digital Signature Benchmark](https://asecuritysite.com/pqc/dilbenchmark)
+    Interactive benchmarking tool for post-quantum signature schemes including Dilithium/ML-DSA across different security levels.
+25. [Making SLH-DSA 10x-100x Faster](https://huelsing.net/wordpress/?page_id=1474)
+    Research by SLH-DSA co-designer Andreas Huelsing on optimisation techniques to dramatically improve SLH-DSA signing and verification performance.
+26. [SLotH GitHub: SLH-DSA Performance](https://github.com/slh-dsa/sloth)
+    Reference implementation and benchmarks for optimised SLH-DSA, targeting hardware acceleration to close the performance gap with lattice-based schemes.
+27. [Chaincode: Bitcoin Post-Quantum](https://chaincode.com/bitcoin-post-quantum.pdf)
+    Chaincode Labs research paper analysing post-quantum migration strategies for Bitcoin, including signature scheme selection and upgrade paths.
 
 ### Social problem and fixes
-20. [Hourglass v2 Draft](https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki)
-21. [Lopp: Against Quantum Recovery of Bitcoin](https://blog.lopp.net/against-quantum-recovery-of-bitcoin/)
-22. [CoinDesk: To Freeze or Not to Freeze — Satoshi and the $440B in Bitcoin Threatened by Quantum Computing](https://www.coindesk.com/business/2026/02/22/to-freeze-or-not-to-freeze-satoshi-and-the-usd440-billion-in-bitcoin-threatened-by-quantum-computing)
-23. [Cointelegraph Magazine: Bitcoin may face hard fork over any attempt to freeze Satoshi's coins](https://cointelegraph-magazine.com/bitcoin-may-face-hard-fork-over-any-attempt-to-freeze-satoshis-coins/)
+28. [Hourglass v2 Draft](https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki)
+    Proposes a middle-ground approach to quantum-vulnerable coins: rate-limiting their movement rather than freezing or ignoring them entirely.
+29. [Lopp: Against Quantum Recovery of Bitcoin](https://blog.lopp.net/against-quantum-recovery-of-bitcoin/)
+    Jameson Lopp argues Bitcoin should permanently burn funds in quantum-vulnerable addresses rather than allow quantum-capable entities to steal them.
+30. [CoinDesk: To Freeze or Not to Freeze — Satoshi and the $440B in Bitcoin Threatened by Quantum Computing](https://www.coindesk.com/business/2026/02/22/to-freeze-or-not-to-freeze-satoshi-and-the-usd440-billion-in-bitcoin-threatened-by-quantum-computing)
+    Examines the debate over ~7 million BTC in quantum-vulnerable addresses including Satoshi's ~1 million coins, weighing immutability against market stability.
+31. [Cointelegraph Magazine: Bitcoin may face hard fork over any attempt to freeze Satoshi's coins](https://cointelegraph-magazine.com/bitcoin-may-face-hard-fork-over-any-attempt-to-freeze-satoshis-coins/)
+    Argues that freezing quantum-vulnerable coins would violate Bitcoin's core property rights, potentially splitting the network in a contentious hard fork.
 
 ### Other uses of QC
-24. [Frontiers: Quantum Computing — Foundations, Algorithms, and Emerging Applications (2025)](https://www.frontiersin.org/journals/quantum-science-and-technology/articles/10.3389/frqst.2025.1723319/full)
-25. [Wikipedia: Harvest Now, Decrypt Later](https://en.wikipedia.org/wiki/Harvest_now,_decrypt_later)
-26. [Federal Reserve: HNDL and Post-Quantum Cryptography Risks for Distributed Ledger Networks](https://www.federalreserve.gov/econres/feds/harvest-now-decrypt-later-examining-post-quantum-cryptography-and-the-data-privacy-risks-for-distributed-ledger-networks.htm)
-27. [McKinsey: The Quantum Revolution in Pharma (2025)](https://www.mckinsey.com/industries/life-sciences/our-insights/the-quantum-revolution-in-pharma-faster-smarter-and-more-precise)
-28. [Nature: Quantum-Machine-Assisted Drug Discovery (2025)](https://www.nature.com/articles/s44386-025-00033-2)
+32. [Frontiers: Quantum Computing — Foundations, Algorithms, and Emerging Applications (2025)](https://www.frontiersin.org/journals/quantum-science-and-technology/articles/10.3389/frqst.2025.1723319/full)
+    Comprehensive review covering quantum algorithms and their emerging applications across materials science, chemistry, optimisation, and physics simulation.
+33. [Wikipedia: Harvest Now, Decrypt Later](https://en.wikipedia.org/wiki/Harvest_now,_decrypt_later)
+    Overview of the HNDL strategy where adversaries intercept and store encrypted communications today for decryption once quantum computers become available.
+34. [Federal Reserve: HNDL and Post-Quantum Cryptography Risks for Distributed Ledger Networks](https://www.federalreserve.gov/econres/feds/harvest-now-decrypt-later-examining-post-quantum-cryptography-and-the-data-privacy-risks-for-distributed-ledger-networks.htm)
+    Federal Reserve research examining how harvest-now-decrypt-later attacks pose data privacy risks specifically for blockchain and distributed ledger networks.
+35. [McKinsey: The Quantum Revolution in Pharma (2025)](https://www.mckinsey.com/industries/life-sciences/our-insights/the-quantum-revolution-in-pharma-faster-smarter-and-more-precise)
+    McKinsey analysis of how quantum computing is accelerating drug discovery by simulating molecular interactions at the quantum level, compressing timelines from years to weeks.
+36. [Nature: Quantum-Machine-Assisted Drug Discovery (2025)](https://www.nature.com/articles/s44386-025-00033-2)
+    Nature paper on combining quantum computing with machine learning for biomarker discovery, genomic data processing, and cancer detection via liquid biopsy.
 
 
 
