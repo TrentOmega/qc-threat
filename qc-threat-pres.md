@@ -140,26 +140,25 @@
 
 ## References
 
-1. [Quantum resource estimates for computing elliptic curve discrete logarithms](https://arxiv.org/abs/1706.06752)
-2. [Theory of Grover's search algorithm](https://learn.microsoft.com/en-us/azure/quantum/concepts-grovers)
-3. [https://bip360.org/bip360.html](https://bip360.org/bip360.html)  
-2. [https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)  
-3. [https://www.bitmex.com/blog/Taproot-Quantum-Spend-Paths](https://www.bitmex.com/blog/Taproot-Quantum-Spend-Paths)  
-4. [https://www.tradingview.com/news/cointelegraph%253A30729863f094b%253A0-bitcoin-may-take-7-years-to-upgrade-to-post-quantum-bip-360-co-author/](https://www.tradingview.com/news/cointelegraph%253A30729863f094b%253A0-bitcoin-may-take-7-years-to-upgrade-to-post-quantum-bip-360-co-author/)  
-5. [https://www.tradingview.com/news/cointelegraph:d4cc2ff14094b:0-bitcoin-faces-6-massive-challenges-to-become-quantum-secure/](https://www.tradingview.com/news/cointelegraph:d4cc2ff14094b:0-bitcoin-faces-6-massive-challenges-to-become-quantum-secure/)  
-6. [https://bitcoinmagazine.com/news/bitcoin-advances-toward-quantum-resistance](https://bitcoinmagazine.com/news/bitcoin-advances-toward-quantum-resistance)  
-7. [https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues)  
-8. [https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki](https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki)  
-9. [https://blog.lopp.net/against-quantum-recovery-of-bitcoin/](https://blog.lopp.net/against-quantum-recovery-of-bitcoin/)
-10. https://csrc.nist.gov/pubs/fips/204/final
-11. https://csrc.nist.gov/pubs/fips/205/final
-12. https://www.theinvestorspodcast.com/bitcoin-fundamentals/quantum-computing-and-bitcoin-w-charles-edwards/
-
-Post-Quantum Digital Signatures Benchmark — ML-DSA vs ECDSA
-Digital Signature Benchmark — ASecuritySite
-Making SLH-DSA 10x-100x Faster
-SLH-DSA Performance — SLotH GitHub
-https://chaincode.com/bitcoin-post-quantum.pdf
+1. [Quantum Resource Estimates for ECDLP](https://arxiv.org/abs/1706.06752)
+2. [Grover's Search Algorithm Overview](https://learn.microsoft.com/en-us/azure/quantum/concepts-grovers)
+3. [BIP360.org Overview](https://bip360.org/bip360.html)
+4. [BIP-360 Draft: Pay-to-Merkle-Root](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
+5. [BitMEX Research: Taproot Quantum Spend Paths](https://www.bitmex.com/blog/Taproot-Quantum-Spend-Paths)
+6. [Cointelegraph: BIP-360 Upgrade Timeline](https://www.tradingview.com/news/cointelegraph%253A30729863f094b%253A0-bitcoin-may-take-7-years-to-upgrade-to-post-quantum-bip-360-co-author/)
+7. [Cointelegraph: Six Quantum Security Challenges](https://www.tradingview.com/news/cointelegraph:d4cc2ff14094b:0-bitcoin-faces-6-massive-challenges-to-become-quantum-secure/)
+8. [Bitcoin Magazine: Bitcoin Advances Toward Quantum Resistance](https://bitcoinmagazine.com/news/bitcoin-advances-toward-quantum-resistance)
+9. [Bitcoin Magazine: Quantum Bitcoin Summit](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues)
+10. [Hourglass v2 Draft](https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki)
+11. [Lopp: Against Quantum Recovery of Bitcoin](https://blog.lopp.net/against-quantum-recovery-of-bitcoin/)
+12. [NIST FIPS 204: ML-DSA](https://csrc.nist.gov/pubs/fips/204/final)
+13. [NIST FIPS 205: SLH-DSA](https://csrc.nist.gov/pubs/fips/205/final)
+14. [Bitcoin Fundamentals: Quantum Computing and Bitcoin](https://www.theinvestorspodcast.com/bitcoin-fundamentals/quantum-computing-and-bitcoin-w-charles-edwards/)
+15. [Post-Quantum Digital Signatures Benchmark: ML-DSA vs ECDSA](https://pqc.metamui.id/signatures/ecc_dss)
+16. [ASecuritySite: Digital Signature Benchmark](https://asecuritysite.com/pqc/dilbenchmark)
+17. [Making SLH-DSA 10x-100x Faster](https://huelsing.net/wordpress/?page_id=1474)
+18. [SLotH GitHub: SLH-DSA Performance](https://github.com/slh-dsa/sloth)
+19. [Chaincode: Bitcoin Post-Quantum](https://chaincode.com/bitcoin-post-quantum.pdf)
 
 ## BIP360 Notes
 
