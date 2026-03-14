@@ -1,12 +1,16 @@
 # Quantum Computing Threat to Bitcoin
 
 ## Presentation Length
-* 30 minutes including quesitons
+* 25 minutes including quesitons
 
 ## Audience
 
 * Bitcoin: beginner to advance on bitcoin  
 * QC: no knowledge to intermediate
+
+## Objective
+
+* Overview the threat, what can we do, what can you do.
 
 ## Topic Intro
 - Interesting and difficult topic to present on because it lies at the intersection of four disciplinary pillars
@@ -14,44 +18,30 @@
   2. the intricate mathematics of cyrptography,
   3. the elegant structures of computer science, and
   4. the innovative functions of Bitcoin.
-- I'm currently studying the first three: physics, math, and computer science; and have had a keen interest in the technical aspects of Bitcoin for many years.
-- This topic has a lot of FUD around it and one of my aims is to reduce that:
+- The presenter is currently studying the first three: physics, math, and computer science; and has had a keen interest in the technical aspects of Bitcoin for many years.
+- This topic has a lot of FUD around and one of the presentations aims is to reduce that:
   - Understanding a threat and what is being done can eleviate fear,
-  - Uncertainty is a big thing in the QC space and won't be going away, so learn to live with
+  - Uncertainty is a big thing in the QC space and won't be going away, so learn to live with it
   - Doubt exists on both sides of people underselling and overselling the risk. I hope to clear up some of those doubts
-- Explore further as not much time here.s
+- Explore further as not much time here to explain.
 
-## Objective
-
-* Overview the threat, what can we do, what can you do.
 
 ## Outline
 
-* ### What is Quantum Computing (QC) — ALT
-
-  * Three components: qubits, quantum gates, measurement
-  * Physical qubits → error correction → logical qubits
-  * Fault tolerance: the key engineering challenge
-  * CRQC: a QC with enough logical qubits to break cryptography
-  * Current uses: drug discovery, optimisation
-
-  #### Notes
-  * **Qubits**: the basic unit — like a bit but can be in superposition (both 0 and 1 simultaneously). Superposition is what gives QC its parallelism.
-  * **Quantum gates**: operations that manipulate qubits, analogous to logic gates in classical computing. They exploit superposition and entanglement to perform computations across many states at once.
-  * **Measurement**: collapses a qubit’s superposition into a definite 0 or 1. Quantum algorithms are designed so that measuring at the end gives the correct answer with high probability.
-  * **Physical vs logical qubits**: physical qubits are the actual hardware (superconducting circuits, trapped ions, etc.) and are extremely error-prone. Multiple physical qubits are combined via quantum error correction codes to form one reliable logical qubit. Current ratios are roughly 1,000:1 or worse.
-  * **Fault tolerance**: the ability to perform long computations despite individual qubit errors. Without fault tolerance a QC can only run very short, noisy circuits. Achieving fault tolerance at scale is the single biggest engineering barrier to a CRQC.
-  * **CRQC (Cryptographically Relevant Quantum Computer)**: a fault-tolerant QC with enough logical qubits and sufficient runtime to execute Shor’s algorithm against real-world key sizes (e.g. ECDSA-256). Estimates range from ~2,000–4,000 logical qubits, which translates to millions of physical qubits with current error rates.
-  * **Current commercial uses**: Pharmaceutical companies are paying for QC time to simulate molecular interactions for drug discovery. Logistics and finance firms use quantum annealers and hybrid algorithms for combinatorial optimisation problems (routing, portfolio optimisation). These are the applications attracting real revenue today, which signals where the technology is genuinely useful right now.
-
 * ### What is Quantum Computing (QC) — ORIGINAL
 
-  * What makes it work: superposition and entanglement
-  * What we currently have
-  * What’s getting built ([ref](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues))
-  * Cryptographic Relevant Quantum Computer (CRQC)
-    * physical qubits → error correction → logical qubits
+  * What makes it work:
+    * Three components: qubits, quantum gates, measurement
+    * Physical qubits → error correction → logical qubits
     * logical qubits \+ runtime → “can it run Shor fast enough?”
+    * Fault tolerance: the key engineering challenge
+  * Definitions:
+    * Cryptographic Relevant Quantum Computer (CRQC): a QC with enough logical qubits to break cryptography
+    * Q-Day: the day a CRQC arrives
+  * What we currently have
+    * Current uses: drug discovery, optimisation
+  * What’s getting built ([ref](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues))
+
 
 * ### What is the QC threat to Bitcoin
 
@@ -63,17 +53,12 @@
   * Mining: Grover’s algorithm
 
 * ### Revision
-
-  * Digital signatures and hashing  
-  * How digital signatures are used in Bitcoin  
-  * How hashing is used in Bitcoin  
-    * Mining  
-    * Compressing and concealing public keys  
-  * Spending bitcoin and the mempool
+ 
+ (typing) . (door opens) . (door closes) (typing)
 
 * ### When is it coming
 
-  * Q-day likelihoods (GRI Quantum Threat Timeline Report 2024)  
+  * Q-day likelihoods (GRI Quantum Threat Timeline Report 2025)  
   * Government policy timelines
 
 * ### The two big problems to Bitcoin
@@ -89,7 +74,9 @@
   * Quantum resistant signatures  
     * 5 main families: hash, lattice, isogeny, codes, multivariate
     * Lattice based: Dilithium
-    * Hash based: SPHINCS+  
+      *[ML-DSA](https://csrc.nist.gov/pubs/fips/204/final)* Latice-based (derived from CRYSTALS-Dilithium) NIST FIPS 204
+    * Hash based: SPHINCS+
+      *[SLH-DSA](https://csrc.nist.gov/pubs/fips/204/final)* Hash-based (derived from SPHINCS+) NIST FIPS 205  
     * Isogeny: experimental and risky
   * Impacts
     * Size, verification & signing times  
@@ -106,7 +93,7 @@
 
   * The problem: do nothing and a CRQC can spend & crash the market, or restrict spending somehow and violate bitcoin’s censorship resistance.  
   * Solutions:  
-    * Steal: preserves censorship resistance but could collapse price  
+    * Status quo: preserves censorship resistance but could collapse price  
     * Freeze: prevents market crash but violates censorship resistance and legitimacy  
     * Hourglass: middle path of rate-limiting movement of quantum-exposed coins.  
   * Timeline issues with freezing  
@@ -140,30 +127,72 @@
 
 ## References
 
-1. [Quantum Resource Estimates for ECDLP](https://arxiv.org/abs/1706.06752)
-2. [Grover's Search Algorithm Overview](https://learn.microsoft.com/en-us/azure/quantum/concepts-grovers)
-3. [BIP360.org Overview](https://bip360.org/bip360.html)
-4. [BIP-360 Draft: Pay-to-Merkle-Root](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
-5. [BitMEX Research: Taproot Quantum Spend Paths](https://www.bitmex.com/blog/Taproot-Quantum-Spend-Paths)
-6. [Cointelegraph: BIP-360 Upgrade Timeline](https://www.tradingview.com/news/cointelegraph%253A30729863f094b%253A0-bitcoin-may-take-7-years-to-upgrade-to-post-quantum-bip-360-co-author/)
-7. [Cointelegraph: Six Quantum Security Challenges](https://www.tradingview.com/news/cointelegraph:d4cc2ff14094b:0-bitcoin-faces-6-massive-challenges-to-become-quantum-secure/)
-8. [Bitcoin Magazine: Bitcoin Advances Toward Quantum Resistance](https://bitcoinmagazine.com/news/bitcoin-advances-toward-quantum-resistance)
-9. [Bitcoin Magazine: Quantum Bitcoin Summit](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues)
-10. [Hourglass v2 Draft](https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki)
-11. [Lopp: Against Quantum Recovery of Bitcoin](https://blog.lopp.net/against-quantum-recovery-of-bitcoin/)
-12. [NIST FIPS 204: ML-DSA](https://csrc.nist.gov/pubs/fips/204/final)
-13. [NIST FIPS 205: SLH-DSA](https://csrc.nist.gov/pubs/fips/205/final)
-14. [Bitcoin Fundamentals: Quantum Computing and Bitcoin](https://www.theinvestorspodcast.com/bitcoin-fundamentals/quantum-computing-and-bitcoin-w-charles-edwards/)
+### What is QC
+1. [Grover's Search Algorithm Overview](https://learn.microsoft.com/en-us/azure/quantum/concepts-grovers)
+2. [Bitcoin Magazine: Quantum Bitcoin Summit](https://bitcoinmagazine.com/technical/the-quantum-bitcoin-summit-a-grounded-look-at-the-issues)
+3. [Bitcoin Fundamentals: Quantum Computing and Bitcoin](https://www.theinvestorspodcast.com/bitcoin-fundamentals/quantum-computing-and-bitcoin-w-charles-edwards/)
+
+### What is the threat
+4. [Quantum Resource Estimates for ECDLP](https://arxiv.org/abs/1706.06752)
+5. [Ha, Lee & Heo (2024) — Resource analysis for ECDLP with noisy qubits](https://www.nature.com/articles/s41598-024-54434-w)
+6. [Ed25519 Optimisation (2025)](https://link.springer.com/article/10.1007/s11128-025-04916-1)
+
+### Bitcoin revision
+- Public key cryptography:
+  - [Elliptic Curve Cryptography](https://learnmeabitcoin.com/technical/cryptography/elliptic-curve/)
+  - [ECDSA](https://learnmeabitcoin.com/technical/cryptography/elliptic-curve/ecdsa/)
+  - [Schnorr Signatures](https://learnmeabitcoin.com/technical/cryptography/elliptic-curve/schnorr/)
+  - [Digital Signatures](https://learnmeabitcoin.com/beginners/guide/digital-signatures/)
+  - [Public Keys](https://learnmeabitcoin.com/technical/keys/public-key/)
+  - [Private Keys](https://learnmeabitcoin.com/technical/keys/private-key/)
+- Hashing:
+  - [Hash Functions](https://learnmeabitcoin.com/technical/cryptography/hash-function/)
+  - [Mining](https://learnmeabitcoin.com/beginners/guide/mining/)
+  - [Addresses (compression & checksums)](https://learnmeabitcoin.com/technical/keys/address/)
+  - [HD Wallets & Key Derivation](https://learnmeabitcoin.com/technical/keys/hd-wallets/)
+  - [Merkle Root](https://learnmeabitcoin.com/technical/block/merkle-root/)
+- Spending bitcoin and the mempool:
+  - [Transactions](https://learnmeabitcoin.com/technical/transaction/)
+  - [Memory Pool](https://learnmeabitcoin.com/technical/mining/memory-pool/)
+  - [P2PKH](https://learnmeabitcoin.com/technical/script/p2pkh/)
+  - [P2WPKH](https://learnmeabitcoin.com/technical/script/p2wpkh/)
+  - [P2TR](https://learnmeabitcoin.com/technical/script/p2tr/)
+
+### QC timeline
+7. [Cointelegraph: BIP-360 Upgrade Timeline](https://www.tradingview.com/news/cointelegraph%253A30729863f094b%253A0-bitcoin-may-take-7-years-to-upgrade-to-post-quantum-bip-360-co-author/)
+
+### Technical problem and fixes
+8. [BIP360.org Overview](https://bip360.org/bip360.html)
+9. [BIP-360 Draft: Pay-to-Merkle-Root](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
+10. [BitMEX Research: Taproot Quantum Spend Paths](https://www.bitmex.com/blog/Taproot-Quantum-Spend-Paths)
+11. [Cointelegraph: Six Quantum Security Challenges](https://www.tradingview.com/news/cointelegraph:d4cc2ff14094b:0-bitcoin-faces-6-massive-challenges-to-become-quantum-secure/)
+12. [Bitcoin Magazine: Bitcoin Advances Toward Quantum Resistance](https://bitcoinmagazine.com/news/bitcoin-advances-toward-quantum-resistance)
+13. [NIST FIPS 204: ML-DSA](https://csrc.nist.gov/pubs/fips/204/final)
+14. [NIST FIPS 205: SLH-DSA](https://csrc.nist.gov/pubs/fips/205/final)
 15. [Post-Quantum Digital Signatures Benchmark: ML-DSA vs ECDSA](https://pqc.metamui.id/signatures/ecc_dss)
 16. [ASecuritySite: Digital Signature Benchmark](https://asecuritysite.com/pqc/dilbenchmark)
 17. [Making SLH-DSA 10x-100x Faster](https://huelsing.net/wordpress/?page_id=1474)
 18. [SLotH GitHub: SLH-DSA Performance](https://github.com/slh-dsa/sloth)
 19. [Chaincode: Bitcoin Post-Quantum](https://chaincode.com/bitcoin-post-quantum.pdf)
 
-## BIP360 Notes
+### Social problem and fixes
+20. [Hourglass v2 Draft](https://github.com/cryptoquick/bips/blob/hourglass-v2/bip-hourglass-v2.mediawiki)
+21. [Lopp: Against Quantum Recovery of Bitcoin](https://blog.lopp.net/against-quantum-recovery-of-bitcoin/)
+22. [CoinDesk: To Freeze or Not to Freeze — Satoshi and the $440B in Bitcoin Threatened by Quantum Computing](https://www.coindesk.com/business/2026/02/22/to-freeze-or-not-to-freeze-satoshi-and-the-usd440-billion-in-bitcoin-threatened-by-quantum-computing)
+23. [Cointelegraph Magazine: Bitcoin may face hard fork over any attempt to freeze Satoshi's coins](https://cointelegraph-magazine.com/bitcoin-may-face-hard-fork-over-any-attempt-to-freeze-satoshis-coins/)
 
-### [BIP360 Pay-to_Markle-Root (P2MR)](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
+### Other uses of QC
+24. [Frontiers: Quantum Computing — Foundations, Algorithms, and Emerging Applications (2025)](https://www.frontiersin.org/journals/quantum-science-and-technology/articles/10.3389/frqst.2025.1723319/full)
+25. [Wikipedia: Harvest Now, Decrypt Later](https://en.wikipedia.org/wiki/Harvest_now,_decrypt_later)
+26. [Federal Reserve: HNDL and Post-Quantum Cryptography Risks for Distributed Ledger Networks](https://www.federalreserve.gov/econres/feds/harvest-now-decrypt-later-examining-post-quantum-cryptography-and-the-data-privacy-risks-for-distributed-ledger-networks.htm)
+27. [McKinsey: The Quantum Revolution in Pharma (2025)](https://www.mckinsey.com/industries/life-sciences/our-insights/the-quantum-revolution-in-pharma-faster-smarter-and-more-precise)
+28. [Nature: Quantum-Machine-Assisted Drug Discovery (2025)](https://www.nature.com/articles/s44386-025-00033-2)
 
+
+
+## Notes to support the presentation
+
+### Summary of [BIP360 Pay-to_Markle-Root (P2MR)](https://github.com/bitcoin/bips/blob/master/bip-0360.mediawiki)
 
 - Pay-to-Merkle-Root (P2MR) output is similar to Pay-to-Taproot (P2TR) but with the *key path spend* removed.
 
@@ -219,6 +248,12 @@
   - Later plug-in PQC can provide resistance for this attack.
 - Preparing against long exposure attacks is more time-crucial as early CRQCs are unlikely to be fast enought for short exposure attacks.
 
-- PQC
-  - *[ML-DSA](https://csrc.nist.gov/pubs/fips/204/final)* Latice-based (derived from CRYSTALS-Dilithium) NIST FIPS 204
-  - *[SLH-DSA](https://csrc.nist.gov/pubs/fips/204/final)* Hash-based (derived from SPHINCS+) NIST FIPS 205
+
+### Notes on Quantum Computing
+  * **Qubits**: the basic unit — like a bit but can be in superposition (both 0 and 1 simultaneously). Superposition is what gives QC its parallelism.
+  * **Quantum gates**: operations that manipulate qubits, analogous to logic gates in classical computing. They exploit superposition and entanglement to perform computations across many states at once.
+  * **Measurement**: collapses a qubit’s superposition into a definite 0 or 1. Quantum algorithms are designed so that measuring at the end gives the correct answer with high probability.
+  * **Physical vs logical qubits**: physical qubits are the actual hardware (superconducting circuits, trapped ions, etc.) and are extremely error-prone. Multiple physical qubits are combined via quantum error correction codes to form one reliable logical qubit. Current ratios are roughly 1,000:1 or worse.
+  * **Fault tolerance**: the ability to perform long computations despite individual qubit errors. Without fault tolerance a QC can only run very short, noisy circuits. Achieving fault tolerance at scale is the single biggest engineering barrier to a CRQC.
+  * **CRQC (Cryptographically Relevant Quantum Computer)**: a fault-tolerant QC with enough logical qubits and sufficient runtime to execute Shor’s algorithm against real-world key sizes (e.g. ECDSA-256). Estimates range from ~2,000–4,000 logical qubits, which translates to millions of physical qubits with current error rates.
+  * **Current commercial uses**: Pharmaceutical companies are paying for QC time to simulate molecular interactions for drug discovery. Logistics and finance firms use quantum annealers and hybrid algorithms for combinatorial optimisation problems (routing, portfolio optimisation). These are the applications attracting real revenue today, which signals where the technology is genuinely useful right now. (sizzling)
