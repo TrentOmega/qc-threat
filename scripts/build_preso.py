@@ -12,6 +12,7 @@ Usage:
 
 import subprocess
 import sys
+import re
 from pathlib import Path
 
 import matplotlib
@@ -31,6 +32,7 @@ IMG = ROOT / "assets" / "images"
 CHART = ROOT / "assets" / "charts"
 LOGO = IMG / "bitcoinbushbash-logo.png"
 OUT = ROOT / "quantum-threat-bitcoin-bushbash.pptx"
+PRESO_MD = ROOT / "qc-threat-pres.md"
 
 # ── palette ──────────────────────────────────────────────────────────────────
 
@@ -448,6 +450,132 @@ def _callout(slide, text, x=0.7, y=5.5, w=11.8, color=None):
     p.font.name = FONT
 
 
+def load_reference_sections(md_path: Path):
+    text = md_path.read_text(encoding="utf-8")
+    lines = text.splitlines()
+
+    in_refs = False
+    section = None
+    sections = []
+    current = None
+    i = 0
+
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+
+        if stripped == "## References":
+            in_refs = True
+            i += 1
+            continue
+
+        if in_refs and stripped.startswith("## ") and stripped != "## References":
+            break
+
+        if not in_refs:
+            i += 1
+            continue
+
+        if stripped.startswith("### "):
+            section = {"title": stripped[4:].strip(), "entries": []}
+            sections.append(section)
+            current = None
+            i += 1
+            continue
+
+        match = re.match(r"^(\d+)\.\s+\[(.+?)\]\((https?://[^)]+)\)", stripped)
+        if match and section is not None:
+            current = {
+                "number": match.group(1),
+                "title": match.group(2),
+                "url": match.group(3),
+                "desc": "",
+            }
+            section["entries"].append(current)
+            i += 1
+            continue
+
+        if current is not None and stripped:
+            current["desc"] = f"{current['desc']} {stripped}".strip()
+
+        i += 1
+
+    return [s for s in sections if s["entries"]]
+
+
+def add_reference_slides(prs):
+    sections = load_reference_sections(PRESO_MD)
+    refs_by_number = {}
+    for section in sections:
+        for entry in section["entries"]:
+            refs_by_number[int(entry["number"])] = entry
+
+    page_plan = [
+        ("What is QC", [1, 2, 3]),
+        ("What is the threat", [4, 5, 6, 7]),
+        ("Bitcoin revision", [8, 9, 10, 11, 12]),
+        ("QC timeline", [13, 14, 15]),
+        ("Technical problem and fixes", [16, 17]),
+        (None, [18, 19, 20, 21, 22]),
+        (None, [23, 24, 25]),
+        (None, [26, 27]),
+        ("Social problem and fixes", [28, 29, 30, 31]),
+        ("Other uses of QC", [32, 33]),
+        (None, [34, 35, 36]),
+    ]
+
+    for idx, (section_title, ref_numbers) in enumerate(page_plan, start=1):
+        title = "References" if len(page_plan) == 1 else f"References ({idx}/{len(page_plan)})"
+        s = slide_base(prs, title)
+
+        body = s.shapes.add_textbox(Inches(0.7), Inches(1.95), Inches(12.0), Inches(5.0))
+        tf = body.text_frame
+        tf.word_wrap = True
+        tf.margin_left = 0
+        tf.margin_right = 0
+        tf.margin_top = 0
+        tf.margin_bottom = 0
+
+        first = True
+        if section_title:
+            p = tf.paragraphs[0]
+            p.text = section_title
+            p.font.size = Pt(18)
+            p.font.bold = True
+            p.font.color.rgb = ORANGE
+            p.font.name = FONT
+            p.space_before = Pt(8)
+            p.space_after = Pt(4)
+            first = False
+
+        for ref_num in ref_numbers:
+            entry = refs_by_number[ref_num]
+            p = tf.paragraphs[0] if first else tf.add_paragraph()
+            first = False
+            title_run = p.add_run()
+            title_run.text = f"{entry['number']}. {entry['title']}"
+            title_run.font.size = Pt(12)
+            title_run.font.bold = True
+            title_run.font.color.rgb = OFF_W
+            title_run.font.name = FONT
+            title_run.hyperlink.address = entry["url"]
+            p.space_before = Pt(0)
+            p.space_after = Pt(1)
+
+            if entry["desc"]:
+                p2 = tf.add_paragraph()
+                desc_run = p2.add_run()
+                desc_run.text = entry["desc"]
+                desc_run.font.size = Pt(12)
+                desc_run.font.bold = False
+                desc_run.font.color.rgb = MUTED
+                desc_run.font.name = FONT
+                p2.space_before = Pt(0)
+                p2.space_after = Pt(6)
+
+        _notes(s, "")
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 #  DECK
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -780,72 +908,7 @@ def build_deck(charts: dict) -> Path:
               "'Store now, decrypt later' is already happening — Bitcoin's pressure is real.")
 
     # ── 24  References ───────────────────────────────────────────────────────
-    s = slide_base(prs, "References")
-
-    refs_left = [
-        ("BIP-360 (P2MR)", "github.com/bitcoin/bips/blob/master/bip-0360.mediawiki"),
-        ("bip360.org", "bip360.org/bip360.html"),
-        ("GRI Quantum Threat 2024", "globalriskinstitute.org"),
-        ("BitMEX Taproot Quantum", "bitmex.com/blog/Taproot-Quantum-Spend-Paths"),
-        ("BTC Mag: Quantum Summit", "bitcoinmagazine.com/technical/the-quantum-bitcoin-summit"),
-        ("NIST PQC project", "csrc.nist.gov/projects/post-quantum-cryptography"),
-    ]
-    refs_right = [
-        "Hourglass BIP (legacy coin rate-limiting)",
-        "Lopp: Against Quantum Recovery of Bitcoin",
-        "CNSA 2.0 / NIST IR 8547 timelines",
-        "TradingView: 7-year upgrade estimate",
-    ]
-
-    lh = slide.shapes.add_textbox(Inches(0.7), Inches(2.05), Inches(5.5), Inches(0.5)) if False else \
-         s.shapes.add_textbox(Inches(0.7), Inches(2.05), Inches(5.5), Inches(0.5))
-    lhp = lh.text_frame.paragraphs[0]
-    lhp.text = "Key references"
-    lhp.font.size = Pt(22)
-    lhp.font.bold = True
-    lhp.font.color.rgb = ORANGE
-    lhp.font.name = FONT
-
-    lb = s.shapes.add_textbox(Inches(0.7), Inches(2.6), Inches(5.8), Inches(4.0))
-    ltf = lb.text_frame
-    ltf.word_wrap = True
-    for i, (name, url) in enumerate(refs_left):
-        p = ltf.paragraphs[0] if i == 0 else ltf.add_paragraph()
-        run = p.add_run()
-        run.text = name
-        run.font.size = Pt(14)
-        run.font.bold = True
-        run.font.color.rgb = OFF_W
-        run.font.name = FONT
-        run.hyperlink.address = f"https://{url}" if not url.startswith("http") else url
-        p.space_after = Pt(3)
-        p2 = ltf.add_paragraph()
-        p2.text = url
-        p2.font.size = Pt(9)
-        p2.font.color.rgb = MUTED
-        p2.font.name = FONT
-        p2.space_after = Pt(7)
-
-    rh = s.shapes.add_textbox(Inches(6.9), Inches(2.05), Inches(5.5), Inches(0.5))
-    rhp = rh.text_frame.paragraphs[0]
-    rhp.text = "Additional sources"
-    rhp.font.size = Pt(22)
-    rhp.font.bold = True
-    rhp.font.color.rgb = ORANGE
-    rhp.font.name = FONT
-
-    rb = s.shapes.add_textbox(Inches(6.9), Inches(2.6), Inches(5.3), Inches(4.0))
-    rtf = rb.text_frame
-    rtf.word_wrap = True
-    for i, txt in enumerate(refs_right):
-        p = rtf.paragraphs[0] if i == 0 else rtf.add_paragraph()
-        p.text = txt
-        p.font.size = Pt(14)
-        p.font.color.rgb = OFF_W
-        p.font.name = FONT
-        p.space_after = Pt(11)
-
-    _notes(s, "All major sources listed with URLs.")
+    add_reference_slides(prs)
 
     # ── 25  Q&A ──────────────────────────────────────────────────────────────
     s = slide_base(prs, "Questions?",
