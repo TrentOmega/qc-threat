@@ -53,8 +53,6 @@
   * Mining: Grover’s algorithm
 
 * ### Revision
- 
- (typing) . (door opens) . (door closes) (typing)
 
 * ### When is it coming
 
