@@ -7,6 +7,12 @@ Cross-referenced against existing presentation material in `qc-threat-pres-v1.md
 
 ## New Information
 
+### SHRIMPS Post-Quantum Signature Scheme
+
+Atlas21 reported on April 2, 2026 that Blockstream researcher Jonas Nick presented SHRIMPS, a hash-based post-quantum signature scheme designed for multi-device signing with signatures of approximately 2.5 KB [[3]](#ref-3). The proposal was published on March 30, 2026 and positions itself as a more practical fit for wallet setups that need multiple devices sharing a seed-derived signing configuration [[3]](#ref-3).
+
+The article highlights the contrast with stateless hash-based alternatives such as SLH-DSA, where signatures are materially larger, and with SHRINCS, which is smaller but constrained by single-device state management [[3]](#ref-3). For Bitcoin, the notable angle is wallet usability: the scheme is explicitly framed around limited-signature, multi-device environments rather than generic enterprise signing [[3]](#ref-3).
+
 ### BIP-360 Implementation Progress
 
 BTQ Technologies has released the first working implementation of BIP-360 (Pay-to-Merkle-Root), moving it from proposal to running code on a dedicated testnet [[2]](#ref-2). The Bitcoin Quantum testnet (v0.3.0) has over 50 active miners and has processed more than 100,000 blocks [[2]](#ref-2). The implementation includes full wallet tooling — users can create, fund, sign, and broadcast P2MR transactions end-to-end [[2]](#ref-2).
@@ -36,3 +42,10 @@ https://atlas21.com/bip-360-btq-launches-the-first-implementation-to-protect-bit
 BTQ Technologies releases the first working BIP-360 implementation on the Bitcoin Quantum testnet v0.3.0, with full P2MR wallet tooling and confirmed compatibility with Lightning, BitVM, and Ark.
 
 **New information:** First working BIP-360 code. Testnet has 50+ miners and 100k+ blocks. P2MR compatibility with Lightning/BitVM/Ark confirmed. Full end-to-end wallet tooling available.
+
+### <a id="ref-3"></a>[3] Blockstream: Jonas Nick presents SHRIMPS, a post-quantum signature scheme for Bitcoin
+https://atlas21.com/blockstream-jonas-nick-presents-shrimps-a-post-quantum-signature-scheme-for-bitcoin/
+
+Atlas21 article (April 2, 2026) on Jonas Nick's March 30, 2026 SHRIMPS proposal: a hash-based post-quantum signature scheme targeting multi-device signing with signatures of approximately 2.5 KB.
+
+**New information:** Adds a concrete Bitcoin-oriented PQ signature design to track. Relevant because it focuses on wallet-friendly multi-device operation rather than only generic PQC benchmarks.
