@@ -85,4 +85,5 @@ This repository contains research, presentation source material, generated slide
 
 - Primary branch is `main`.
 - Remote of record is `origin`.
+- Before making edits, check whether the local checkout is behind `origin/main`, and if so pull before editing.
 - Before making assumptions about missing files, check whether the local checkout is behind `origin/main`.
