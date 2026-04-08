@@ -79,6 +79,7 @@ This repository contains research, presentation source material, generated slide
 - Any change made to this repository should be followed by `git add`, `git commit`, and `git push origin` automatically unless the user explicitly says not to commit or not to push.
 - Prefer small, intentional commits with messages that describe the actual repo change.
 - Do not leave completed repo edits uncommitted.
+- GitHub pushes and other authenticated GitHub operations must use `gh`. If git auth is not already wired up for the current shell, run `gh auth setup-git` before pushing.
 
 ### Git expectations
 
