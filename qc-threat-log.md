@@ -13,6 +13,12 @@ Atlas21 reported on April 1, 2026 that media coverage around a new Google quantu
 
 The main value for future presentation use is rhetorical rather than technical: it gives a concrete example of how sensational headlines can outrun the practical state of fault-tolerant quantum hardware, and it surfaces the political or ecosystem incentives around quantum messaging [[4]](#ref-4).
 
+### BIP-360 Testnet Deployment Coverage
+
+Bitcoin Magazine reported last week that Google's new quantum research renewed pressure to harden Bitcoin, and the piece explicitly highlighted that developers already have a BIP-360 testnet deployment to work with [[5]](#ref-5). That makes this a useful supporting source for the claim that Bitcoin's quantum response is no longer purely theoretical and now includes deployed test infrastructure [[5]](#ref-5).
+
+For future presentation use, the main value is not the Google angle itself but the fact that a mainstream Bitcoin publication is now tying the broader quantum discussion directly to the Bitcoin Quantum testnet and active BIP-360 implementation work [[5]](#ref-5).
+
 ### SHRIMPS Post-Quantum Signature Scheme
 
 Atlas21 reported on April 2, 2026 that Blockstream researcher Jonas Nick presented SHRIMPS, a hash-based post-quantum signature scheme designed for multi-device signing with signatures of approximately 2.5 KB [[3]](#ref-3). The proposal was published on March 30, 2026 and positions itself as a more practical fit for wallet setups that need multiple devices sharing a seed-derived signing configuration [[3]](#ref-3).
@@ -62,3 +68,10 @@ https://atlas21.com/bitcoin-and-quantum-computing-fud-courtesy-of-google-and-the
 Atlas21 article (April 1, 2026) arguing that recent media reactions to a Google quantum paper overstated the near-term risk to Bitcoin and that engineering reality remains far from practical secp256k1-breaking machines.
 
 **New information:** Useful as a future presentation source on narrative risk, media framing, and quantum FUD rather than as a primary technical source.
+
+### <a id="ref-5"></a>[5] Google’s New Quantum Research Reignites Push to Harden Bitcoin
+https://bitcoinmagazine.com/news/googles-quantum-research-harden-bitcoin
+
+Bitcoin Magazine article published last week connecting Google's latest quantum research to Bitcoin's migration planning and explicitly pointing to the already-deployed BIP-360 Bitcoin Quantum testnet as evidence of active implementation progress.
+
+**New information:** Strong supporting source for the BIP-360 testnet deployment point because it frames deployed quantum-resistance work as already underway, not merely proposed.
