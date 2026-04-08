@@ -7,6 +7,12 @@ Cross-referenced against existing presentation material in `qc-threat-pres-v1.md
 
 ## New Information
 
+### Quantum FUD / Narrative Risk
+
+Atlas21 reported on April 1, 2026 that media coverage around a new Google quantum paper escalated into fresh Bitcoin quantum alarmism, while the article argues the engineering gap remains very large and that post-quantum migration work such as BIP-360 is already progressing [[4]](#ref-4). This source is less useful as a primary technical reference and more useful as evidence of how quantum-risk narratives are being framed in public discourse [[4]](#ref-4).
+
+The main value for future presentation use is rhetorical rather than technical: it gives a concrete example of how sensational headlines can outrun the practical state of fault-tolerant quantum hardware, and it surfaces the political or ecosystem incentives around quantum messaging [[4]](#ref-4).
+
 ### SHRIMPS Post-Quantum Signature Scheme
 
 Atlas21 reported on April 2, 2026 that Blockstream researcher Jonas Nick presented SHRIMPS, a hash-based post-quantum signature scheme designed for multi-device signing with signatures of approximately 2.5 KB [[3]](#ref-3). The proposal was published on March 30, 2026 and positions itself as a more practical fit for wallet setups that need multiple devices sharing a seed-derived signing configuration [[3]](#ref-3).
@@ -49,3 +55,10 @@ https://atlas21.com/blockstream-jonas-nick-presents-shrimps-a-post-quantum-signa
 Atlas21 article (April 2, 2026) on Jonas Nick's March 30, 2026 SHRIMPS proposal: a hash-based post-quantum signature scheme targeting multi-device signing with signatures of approximately 2.5 KB.
 
 **New information:** Adds a concrete Bitcoin-oriented PQ signature design to track. Relevant because it focuses on wallet-friendly multi-device operation rather than only generic PQC benchmarks.
+
+### <a id="ref-4"></a>[4] Bitcoin and quantum computing: FUD courtesy of Google and the Ethereum Foundation
+https://atlas21.com/bitcoin-and-quantum-computing-fud-courtesy-of-google-and-the-ethereum-foundation/
+
+Atlas21 article (April 1, 2026) arguing that recent media reactions to a Google quantum paper overstated the near-term risk to Bitcoin and that engineering reality remains far from practical secp256k1-breaking machines.
+
+**New information:** Useful as a future presentation source on narrative risk, media framing, and quantum FUD rather than as a primary technical source.
