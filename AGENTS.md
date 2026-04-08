@@ -26,10 +26,10 @@ This repository contains research, presentation source material, generated slide
   LibreOffice Impress deck. This is the editable presentation artifact when working in Impress.
 
 - `quantum-threat-bitcoin-bushbash.pptx`
-  Generated PowerPoint version of the deck.
+  Generated PowerPoint version of the deck. This may be out of date and should be treated as a copy/export of the `.odp`, not the source of truth.
 
 - `quantum-threat-bitcoin-bushbash.pdf`
-  Exported PDF version of the presentation.
+  Exported PDF version of the presentation. This is the version that was delivered at Beechworth 2026.
 
 ### Website / handoff material
 
