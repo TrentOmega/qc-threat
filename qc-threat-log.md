@@ -7,6 +7,24 @@ Cross-referenced against existing presentation material in `qc-threat-pres-v1.md
 
 ## New Information
 
+### QSB Proposal Without Consensus Changes
+
+Atlas21 reported on a new Bitcoin QSB proposal that claims to improve quantum resistance for Bitcoin transactions without requiring protocol changes [[6]](#ref-6). This is useful to track because it sits in a different design space from BIP-360: wallet- or transaction-level mitigation that may be deployable earlier, even if it comes with tradeoffs in assumptions, UX, or security model [[6]](#ref-6).
+
+For future presentation use, this is worth comparing against BIP-360 and post-quantum signature proposals as a "what can be done without consensus changes?" branch of the solution space [[6]](#ref-6).
+
+### First Wallet Anti-Quantum Prototype
+
+Atlas21 also reported the first working prototype of an anti-quantum tool for Bitcoin wallets [[7]](#ref-7). That makes it a practical progress marker rather than a purely conceptual proposal, and it strengthens the case that wallet-layer experimentation is already underway alongside protocol-level work such as BIP-360 [[7]](#ref-7).
+
+This source is useful in the progress report because it shows implementation momentum: not just standards discussion, but actual prototype software for wallet defenses [[7]](#ref-7).
+
+### Adam Back: Decades, Not Immediate Crisis
+
+Bitcoin Magazine reported on April 8, 2026 that Adam Back argued the quantum threat to Bitcoin is still decades away, while still urging gradual migration toward post-quantum security [[8]](#ref-8). This is useful because it sharpens the presentation's framing: the threat is real, preparation should begin now, but the situation is not an immediate break-glass emergency [[8]](#ref-8).
+
+For future presentation use, this source helps balance the more alarmist narratives and supports a "serious but not imminent" position from a widely recognised Bitcoin technical voice [[8]](#ref-8).
+
 ### Quantum FUD / Narrative Risk
 
 Atlas21 reported on April 1, 2026 that media coverage around a new Google quantum paper escalated into fresh Bitcoin quantum alarmism, while the article argues the engineering gap remains very large and that post-quantum migration work such as BIP-360 is already progressing [[4]](#ref-4). This source is less useful as a primary technical reference and more useful as evidence of how quantum-risk narratives are being framed in public discourse [[4]](#ref-4).
@@ -75,3 +93,24 @@ https://bitcoinmagazine.com/news/googles-quantum-research-harden-bitcoin
 Bitcoin Magazine article published last week connecting Google's latest quantum research to Bitcoin's migration planning and explicitly pointing to the already-deployed BIP-360 Bitcoin Quantum testnet as evidence of active implementation progress.
 
 **New information:** Strong supporting source for the BIP-360 testnet deployment point because it frames deployed quantum-resistance work as already underway, not merely proposed.
+
+### <a id="ref-6"></a>[6] Bitcoin QSB proposal offers quantum resistance without protocol changes
+https://atlas21.com/bitcoin-qsb-proposal-offers-quantum-resistance-without-protocol-changes/
+
+Atlas21 article on a Bitcoin QSB proposal positioned as a way to add quantum resistance without changing Bitcoin's consensus rules.
+
+**New information:** Useful for tracking wallet- or transaction-layer mitigation ideas that do not depend on a protocol upgrade.
+
+### <a id="ref-7"></a>[7] Bitcoin: first working prototype of anti-quantum tool for wallets
+https://atlas21.com/bitcoin-first-working-prototype-of-anti-quantum-tool-for-wallets/
+
+Atlas21 article on the first working prototype of an anti-quantum tool for Bitcoin wallets.
+
+**New information:** Important implementation signal. Shows wallet-layer anti-quantum work moving from concept into prototype.
+
+### <a id="ref-8"></a>[8] Adam Back Says Quantum Threat to Bitcoin Is Decades Away, Urges Gradual Migration to Post-Quantum Security
+https://bitcoinmagazine.com/news/adam-back-says-quantum-threat-to-bitcoin
+
+Bitcoin Magazine article published April 8, 2026 reporting Adam Back's view that quantum risk is real but still decades away, paired with a recommendation to migrate gradually toward post-quantum security.
+
+**New information:** Strong source for a balanced framing: prepare now, but avoid treating current quantum progress as an immediate existential break of Bitcoin.
