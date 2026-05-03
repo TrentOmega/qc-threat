@@ -7,6 +7,12 @@ Cross-referenced against existing presentation material in `qc-threat-pres-v1.md
 
 ## New Information
 
+### Google Responsible Disclosure of Quantum Vulnerabilities
+
+Google Research published a March 31, 2026 post explaining its approach to responsible disclosure for quantum vulnerabilities in cryptocurrency systems [[9]](#ref-9). The post says Google's new whitepaper gives updated ECDLP-256 attack resource estimates, including circuits using fewer than 1,200 logical qubits and 90 million Toffoli gates, or fewer than 1,450 logical qubits and 70 million Toffoli gates [[9]](#ref-9).
+
+For future presentation use, this is a strong primary source for the "serious but disclose carefully" framing. Google explicitly warns that unscientific quantum break estimates can become FUD, says it is using zero-knowledge proofs to substantiate claims without publishing sensitive circuit details, and recommends cryptocurrency communities move toward post-quantum cryptography while reducing avoidable exposure such as address reuse [[9]](#ref-9).
+
 ### QSB Proposal Without Consensus Changes
 
 Atlas21 reported on a new Bitcoin QSB proposal that claims to improve quantum resistance for Bitcoin transactions without requiring protocol changes [[6]](#ref-6). This is useful to track because it sits in a different design space from BIP-360: wallet- or transaction-level mitigation that may be deployable earlier, even if it comes with tradeoffs in assumptions, UX, or security model [[6]](#ref-6).
@@ -114,3 +120,10 @@ https://bitcoinmagazine.com/news/adam-back-says-quantum-threat-to-bitcoin
 Bitcoin Magazine article published April 8, 2026 reporting Adam Back's view that quantum risk is real but still decades away, paired with a recommendation to migrate gradually toward post-quantum security.
 
 **New information:** Strong source for a balanced framing: prepare now, but avoid treating current quantum progress as an immediate existential break of Bitcoin.
+
+### <a id="ref-9"></a>[9] Safeguarding cryptocurrency by disclosing quantum vulnerabilities responsibly
+https://research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly/
+
+Google Research article (March 31, 2026) by Ryan Babbush and Hartmut Neven describing updated quantum resource estimates for ECDLP-256, recommendations for cryptocurrency PQC migration, and a responsible disclosure model based on zero-knowledge proof verification rather than publishing attack circuits.
+
+**New information:** Primary-source support for updated ECDLP-256 estimates, responsible disclosure norms, FUD-aware communication, and Google's recommendation that cryptocurrency systems transition to post-quantum cryptography.
